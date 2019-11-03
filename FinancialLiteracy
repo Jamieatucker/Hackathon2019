@@ -624,15 +624,15 @@ public final class FinancialLiteracy {
         } else if (salary <= 45000) {
             num = 1 + rand.nextInt(24);
         } else if (salary <= 56000) {
-            num = 1 + rand.nextInt(28);
+            num = 1 + rand.nextInt(26);
         } else if (salary <= 70000) {
-            num = 1 + rand.nextInt(32);
+            num = 1 + rand.nextInt(29);
         } else if (salary <= 84000) {
-            num = 1 + rand.nextInt(36);
+            num = 1 + rand.nextInt(32);
         } else if (salary <= 120000) {
-            num = 1 + rand.nextInt(40);
+            num = 1 + rand.nextInt(35);
         } else if (salary <= 200000) {
-            num = 1 + rand.nextInt(42);
+            num = 1 + rand.nextInt(38);
         }
         switch (num) {
             case 1:
@@ -655,10 +655,10 @@ public final class FinancialLiteracy {
                 break;
             case 5:
                 System.out.println(
-                        "Oh no! Your car's engine gave out on your way to work! It'll cost $2000 to repair it!");
+                        "Oh no! Your car's engine gave out on your way to work!");
                 if (hasCarInsurance == true) {
                     System.out.println(
-                            "But since you have car insurance, it will pay to cover the damages!");
+                            "But since you have car insurance, it will pay to cover the damages! Your car insurance is going to increase however.");
                     carInsuranceValue += 500;
                 } else {
                     System.out
