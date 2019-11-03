@@ -1,2 +1,2 @@
 # Hackathon2019
-Hackathon 2019
+Hack OHI/O Hackathon 2019 Project (November 2, 2019)
