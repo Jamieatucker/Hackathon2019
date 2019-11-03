@@ -118,8 +118,8 @@ public final class FinancialLiteracy {
         System.out.println(
                 "Please enter the number of which living space you would like: ");
         choice = in.nextInt();
-        if (children >= 2 && choice < 2) {
-            while (choice < 2) {
+        if (children >= 2 && choice <= 2) {
+            while (choice <= 2) {
                 System.out.println(
                         "You cannot fit three children into that small place. You must choose a larger home.");
                 choice = in.nextInt();
@@ -148,7 +148,6 @@ public final class FinancialLiteracy {
     private static void secondLevel() {
         Scanner in = new Scanner(System.in);
         int choice = 0;
-        int gas = 0;
         String car = "";
         String condition = "";
         // number of choices to make for the cars
@@ -191,7 +190,6 @@ public final class FinancialLiteracy {
             switch (choice) {
                 case 1:
                     car = "compact";
-                    gas = 117 * 12;
                     fuelPayment = 117;
                     System.out.println(
                             "Which condition of the compact car are you buying? \n1. Used 2. New");
@@ -229,7 +227,6 @@ public final class FinancialLiteracy {
                     break;
                 case 2:
                     car = "sedan";
-                    gas = 170 * 12;
                     fuelPayment = 170;
                     System.out.println(
                             "Which condition of the sedan are you buying? \n1. Used 2. New");
@@ -266,7 +263,6 @@ public final class FinancialLiteracy {
                     break;
                 case 3:
                     car = "SUV";
-                    gas = 200 * 12;
                     fuelPayment = 200;
                     System.out.println(
                             "Which condition of the SUV are you buying? \n1. Used 2. New");
@@ -283,7 +279,7 @@ public final class FinancialLiteracy {
                         carPayment = 700;
                         money -= 5000;
                         System.out
-                                .println("Your down Payment is $" + 5000 + ".");
+                                .println("Your down payment is $" + 5000 + ".");
                         money -= (carPayment * 12);
                     } else {
                         System.out.println(
@@ -303,7 +299,6 @@ public final class FinancialLiteracy {
                     break;
                 case 4:
                     car = "mini-van";
-                    gas = 225 * 12;
                     fuelPayment = 225;
                     System.out.println(
                             "Which condition of the mini-van are you buying? \n1. Used 2. New");
@@ -340,7 +335,6 @@ public final class FinancialLiteracy {
                     break;
                 case 5:
                     car = "lamborghini";
-                    gas = 400 * 12;
                     fuelPayment = 400;
                     System.out.println(
                             "Which condition of the mini-van are you buying? \n1. Used 2. New");
@@ -450,14 +444,14 @@ public final class FinancialLiteracy {
             Thread.sleep(2000);
         } catch (InterruptedException ex) {
         }
-        System.out.println(
-                "Select a monthly grocery plan for you and any children you may have.");
+        System.out.println("You have $" + money + " left for the year.");
         // Delay the text
         try {
             Thread.sleep(2000);
         } catch (InterruptedException ex) {
         }
-        System.out.println("You have $" + money + " left for the year.");
+        System.out.println(
+                "Select a monthly grocery plan for you and any children you may have.");
         // Delay the text
         try {
             Thread.sleep(2000);
@@ -626,17 +620,17 @@ public final class FinancialLiteracy {
         Random rand = new Random();
         int num = 0;
         if (salary <= 30000) {
-            num = 1 + rand.nextInt(16);
+            num = 1 + rand.nextInt(23);
         } else if (salary <= 45000) {
-            num = 1 + rand.nextInt(20);
+            num = 1 + rand.nextInt(25);
         } else if (salary <= 56000) {
-            num = 1 + rand.nextInt(24);
+            num = 1 + rand.nextInt(30);
         } else if (salary <= 70000) {
-            num = 1 + rand.nextInt(26);
+            num = 1 + rand.nextInt(34);
         } else if (salary <= 84000) {
-            num = 1 + rand.nextInt(32);
-        } else if (salary <= 120000) {
             num = 1 + rand.nextInt(40);
+        } else if (salary <= 120000) {
+            num = 1 + rand.nextInt(45);
         } else if (salary <= 200000) {
             num = 1 + rand.nextInt(50);
         }
@@ -644,18 +638,18 @@ public final class FinancialLiteracy {
             case 1:
                 System.out.println(
                         "Your boss has noticed you staying late and working harder, leading to a promotion!");
-                money += 50;
+                finalMoney += 500;
                 break;
             case 2:
                 System.out.println(
                         "Congratulations! You just won $500 from your local lottery event!");
-                money += 500;
+                finalMoney += 500;
                 break;
             case 4:
                 if (hasBirthday == false) {
                     System.out.println(
                             "It's your birthday today! Your family and friends have given you presents resulting in a total of $1500!");
-                    money += 1500;
+                    finalMoney += 1500;
                     hasBirthday = true;
                 }
                 break;
@@ -665,10 +659,11 @@ public final class FinancialLiteracy {
                 if (hasCarInsurance == true) {
                     System.out.println(
                             "But since you have car insurance, it will pay to cover the damages!");
+                    carInsuranceValue += 500;
                 } else {
                     System.out
                             .println("It's going to cost $7500 to repair it!");
-                    money -= 7500;
+                    finalMoney -= 7500;
                 }
                 break;
             case 8:
@@ -677,31 +672,46 @@ public final class FinancialLiteracy {
                 if (hasHouseInsurance == true) {
                     System.out.println(
                             "But since you have house insurance, it's only going to cost $2500 to fix the damages!");
-                    money -= 2500;
+                    finalMoney -= 2500;
                 } else {
                     System.out.println("It's going to cost $7500!");
-                    money -= 7500;
+                    finalMoney -= 7500;
                 }
                 break;
             case 9:
                 if (children > 0) {
-                    System.out.println(
-                            "Your child has come down with the flu. Medical treatment is going to cost $600!");
+                    System.out
+                            .println("Your child has come down with the flu.");
+                    if (hasChildHealthInsurance == true) {
+                        System.out.println(
+                                "But since you bought health insurance for your children, It's only going to cost $200!");
+                        finalMoney -= 200;
+                    } else {
+                        System.out.println("It's going to cost you $600!");
+                        finalMoney -= 600;
+                    }
                 } else {
-                    System.out.println(
-                            "You have come down with the flu. Medical treatment is going to cost $600!");
+                    System.out.println("You have come down with the flu.");
+                    if (hasHealthInsurance == true) {
+                        System.out.println(
+                                "But since you have health insurance, its only going to cost $200!");
+                        finalMoney -= 200;
+                    } else {
+                        System.out.println(
+                                "Medical treatment is going to cost $600!");
+                        finalMoney -= 600;
+                    }
                 }
-                money -= 600;
                 break;
             case 12:
                 System.out.println(
                         "Your great grandma has recently passed away. It's going to cost $365 to fly down and mourn the loss.");
-                money -= 365;
+                finalMoney -= 365;
                 break;
             case 16:
                 System.out.println(
                         "You go on vacation and gambled away $10,000! Learn some self-control!");
-                money -= 10000;
+                finalMoney -= 10000;
                 break;
             case 19:
                 System.out.println(
@@ -709,11 +719,11 @@ public final class FinancialLiteracy {
                 if (hasHealthInsurance == true) {
                     System.out.println(
                             "But since you have health insurance, it will only cost $250!");
-                    money -= 250;
+                    finalMoney -= 250;
                 } else {
                     System.out.println(
                             "It'll cost $2,500 without health insurance!");
-                    money -= 2500;
+                    finalMoney -= 2500;
                 }
                 break;
             case 22:
@@ -722,12 +732,12 @@ public final class FinancialLiteracy {
                 if (hasHealthInsurance == true) {
                     System.out.println(
                             "But since you have health insurance, the additonal monthly medical bill will only be $1000 more!");
-                    money -= 1000;
+                    finalMoney -= 1000;
                     healthInsuranceValue += 1000;
                 } else {
                     System.out.println(
                             "It'll add $1,666 to your health insurance!");
-                    money -= 1666;
+                    finalMoney -= 1666;
                     healthInsuranceValue -= 1666;
                 }
                 break;
@@ -735,11 +745,11 @@ public final class FinancialLiteracy {
                 if (children <= 0) {
                     System.out.println(
                             "You take out a nice beautiful/handsome person to a five-star restaurant. You split the bill with them.");
-                    money -= 50;
+                    finalMoney -= 50;
                 } else {
                     System.out.println(
                             "You take the kids out to Luck Y. Bee's. It costs you $10 per child.");
-                    money -= (children * 10);
+                    finalMoney -= (children * 10);
                 }
                 break;
         }
