@@ -118,7 +118,7 @@ public final class FinancialLiteracy {
         System.out.println(
                 "Please enter the number of which living space you would like: ");
         choice = in.nextInt();
-        if (children >= 2 && choice <= 2) {
+        if (children > 2 && choice <= 2) {
             while (choice <= 2) {
                 System.out.println(
                         "You cannot fit three children into that small place. You must choose a larger home.");
@@ -129,7 +129,7 @@ public final class FinancialLiteracy {
         while (!(1 <= choice && choice <= 4)) {
             System.out.println("Please enter a number between 1-4.");
             choice = in.nextInt();
-            if (children >= 2 && choice < 2) {
+            if (children > 2 && choice <= 2) {
                 while (choice < 2) {
                     System.out.println(
                             "You cannot fit three children into that small place. You must choose a larger home.");
@@ -518,7 +518,7 @@ public final class FinancialLiteracy {
         while (choice != 5) {
             if (children > 0) {
                 System.out.println(
-                        "Pick one insurance you would like: \n 1. Your health insurance 2. Children health insurance 3. Car insurance 4. House insurance");
+                        "Pick one insurance you would like: \n 1. Your health insurance 2. Child health insurance 3. Car insurance 4. House insurance 5. Exit");
                 choice = in.nextInt();
                 if (choice == 1 && hasHealthInsurance == false) {
                     healthInsuranceValue = 320;
@@ -622,17 +622,17 @@ public final class FinancialLiteracy {
         if (salary <= 30000) {
             num = 1 + rand.nextInt(23);
         } else if (salary <= 45000) {
-            num = 1 + rand.nextInt(25);
+            num = 1 + rand.nextInt(24);
         } else if (salary <= 56000) {
-            num = 1 + rand.nextInt(30);
+            num = 1 + rand.nextInt(28);
         } else if (salary <= 70000) {
-            num = 1 + rand.nextInt(34);
+            num = 1 + rand.nextInt(32);
         } else if (salary <= 84000) {
-            num = 1 + rand.nextInt(40);
+            num = 1 + rand.nextInt(36);
         } else if (salary <= 120000) {
-            num = 1 + rand.nextInt(45);
+            num = 1 + rand.nextInt(40);
         } else if (salary <= 200000) {
-            num = 1 + rand.nextInt(50);
+            num = 1 + rand.nextInt(42);
         }
         switch (num) {
             case 1:
